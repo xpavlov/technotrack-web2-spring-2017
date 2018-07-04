@@ -1,0 +1,28 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    </head>
+    <body>
+        <div id="offset"> </div>
+        <div id="centrifuge" style="display: none;"
+             data-url="{{ CENTRIFUGE_WS_ENDPOINT }}"
+            data-user="{{ CENTRIFUGE_USER }}"
+            data-info="{{ CENTRIFUGE_INFO }}"
+            data-timestamp="{{ CENTRIFUGE_TIMESTAMP }}"
+            data-token="{{ CENTRIFUGE_TOKEN }}">
+        </div>
+        <div id=root></div>
+        {% render_bundle 'coreBundle' %}
+    </body>
+
+<style>
+    #offset {
+        height: 100px;
+    }
+</style>
+
+</html>
